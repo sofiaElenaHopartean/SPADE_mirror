@@ -5,3 +5,8 @@ results/
 *.zip
 *.pkl
 *.pyc
+datasets/rico/*
+.mypy_cache/*
+data/.mypy_cache/*
+datasets/.mypy_cache/*
+util/.mypy_cache/*

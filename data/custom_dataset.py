@@ -21,14 +21,14 @@ class CustomDataset(Pix2pixDataset):
         parser.set_defaults(load_size=load_size)
         parser.set_defaults(crop_size=256)
         parser.set_defaults(display_winsize=256)
-        parser.set_defaults(label_nc=13)
+        parser.set_defaults(label_nc=26)
         parser.set_defaults(contain_dontcare_label=False)
 
-        parser.add_argument('--label_dir', type=str, required=True,
-                            help='path to the directory that contains label images')
-        parser.add_argument('--image_dir', type=str, required=True,
-                            help='path to the directory that contains photo images')
-        parser.add_argument('--instance_dir', type=str, default='',
+        parser.add_argument('--label_dir', type=str, default='../datasets/rico/semantic_ann_img/',
+                            required=True, help='path to the directory that contains label images')
+        parser.add_argument('--image_dir', type=str, default='../datasets/rico/screen_shots_resized/',
+                            required=True, help='path to the directory that contains photo images')
+        parser.add_argument('--instance_dir', type=str, default='../datasets/rico/instance_map_img/',
                             help='path to the directory that contains instance maps. Leave black if not exists')
         return parser
 
