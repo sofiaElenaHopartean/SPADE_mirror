@@ -11,25 +11,30 @@ from util.iter_counter import IterationCounter
 from util.visualizer import Visualizer
 from trainers.pix2pix_trainer import Pix2PixTrainer
 
-print("**managed imports**")
+print("**managed imports**\n")
 
 # parse options
 opt = TrainOptions().parse()
+print("**parsed options**\n")
 
 # print options to help debugging
 print(' '.join(sys.argv))
 
 # load the dataset
 dataloader = data.create_dataloader(opt)
+print("**loaded dataset**\n")
 
 # create trainer for our model
 trainer = Pix2PixTrainer(opt)
+print("**created trainer**\n")
 
 # create tool for counting iterations
 iter_counter = IterationCounter(opt, len(dataloader))
+print("**created iterations counter**\n")
 
 # create tool for visualization
 visualizer = Visualizer(opt)
+print("**created visualization tool**\n")
 
 for epoch in iter_counter.training_epochs():
     iter_counter.record_epoch_start(epoch)
