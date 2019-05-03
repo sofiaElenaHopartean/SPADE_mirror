@@ -11,11 +11,11 @@ import skimage.io as io
 from skimage.draw import polygon
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--annotation_file', type=str, default="./coco_stuff/instances_val2017_part.json",
+parser.add_argument('--annotation_file', type=str, default="../../data/coco_stuff/annotations/instances_train2017.json",
                     help="Path to the annocation file. It can be downloaded at http://images.cocodataset.org/annotations/annotations_trainval2017.zip. Should be either instances_train2017.json or instances_val2017.json")
-parser.add_argument('--input_label_dir', type=str, default="./coco_stuff/val_label/",
+parser.add_argument('--input_label_dir', type=str, default="../../data/coco_stuff/train_label/",
                     help="Path to the directory containing label maps. It can be downloaded at http://calvin.inf.ed.ac.uk/wp-content/uploads/data/cocostuffdataset/stuffthingmaps_trainval2017.zip")
-parser.add_argument('--output_instance_dir', type=str, default="./coco_stuff/val_inst/",
+parser.add_argument('--output_instance_dir', type=str, default="../../data/coco_stuff/train_inst/",
                     help="Path to the output directory of instance maps")
 
 opt = parser.parse_args()
@@ -26,7 +26,6 @@ print("output dir at {}".format(opt.output_instance_dir))
 
 # initialize COCO api for instance annotations
 coco = COCO(opt.annotation_file)
-
 
 # display COCO categories and supercategories
 cats = coco.loadCats(coco.getCatIds())

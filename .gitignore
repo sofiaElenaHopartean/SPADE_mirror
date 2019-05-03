@@ -10,3 +10,6 @@ datasets/rico/*
 data/.mypy_cache/*
 datasets/.mypy_cache/*
 util/.mypy_cache/*
+models/networks/sync_batchnorm/*
+models/networks/Synchronized-BatchNorm-PyTorch/*
+results/*
