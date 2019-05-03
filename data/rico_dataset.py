@@ -24,8 +24,8 @@ class RicoDataset(Pix2pixDataset):
         parser.set_defaults(display_winsize=256)
         parser.set_defaults(label_nc=26)
         parser.set_defaults(contain_dontcare_label=False)
-        parser.set_defaults(cache_filelist_read=True)
-        parser.set_defaults(cache_filelist_write=True)
+        parser.set_defaults(cache_filelist_read=False)
+        parser.set_defaults(cache_filelist_write=False)
 
         parser.add_argument('--label_dir', type=str, default='./datasets/rico/semantic_ann_img/',
                             required=True, help='path to the directory that contains label images')
@@ -37,10 +37,10 @@ class RicoDataset(Pix2pixDataset):
 
     def get_paths(self, opt):
         label_dir = opt.label_dir
-        label_paths = make_dataset(label_dir, recursive=False, read_cache=True)
+        label_paths = make_dataset(label_dir, recursive=True, read_cache=False, write_cache=False)
 
         image_dir = opt.image_dir
-        image_paths = make_dataset(image_dir, recursive=False, read_cache=True)
+        image_paths = make_dataset(image_dir, recursive=True, read_cache=False, write_cache=False)
 
         if len(opt.instance_dir) > 0:
             instance_dir = opt.instance_dir
