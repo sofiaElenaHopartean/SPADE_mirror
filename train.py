@@ -7,6 +7,9 @@ import sys
 from collections import OrderedDict
 from options.train_options import TrainOptions
 import data
+import torch
+import numpy as np
+from tqdm import tqdm
 from util.iter_counter import IterationCounter
 from util.visualizer import Visualizer
 from trainers.pix2pix_trainer import Pix2PixTrainer
@@ -35,11 +38,20 @@ print("**created iterations counter**\n")
 # create tool for visualization
 visualizer = Visualizer(opt)
 print("**created visualization tool**\n")
+print(" image, image shape- min, max, label shape- min, max, instance shape- min, max" )
 
 for epoch in iter_counter.training_epochs():
     iter_counter.record_epoch_start(epoch)
     for i, data_i in enumerate(dataloader, start=iter_counter.epoch_iter):
         iter_counter.record_one_iteration()
+
+        # list_img = data_i['image'].numpy()
+        # list_label = data_i['label'].numpy()
+        # list_inst = data_i['instance'].numpy()
+        # print( (data_i['path'][0]).split("/")[-1],
+        #          list_img.shape, np.amin(list_img), np.amax(list_img),"\t",
+        #          list_label.shape, np.amin(list_label), np.amax(list_label),"\t",
+        #          list_inst.shape, np.amin(list_inst), np.amax(list_inst))
 
         # Training
         # train generator
