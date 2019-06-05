@@ -7,6 +7,7 @@ results/
 *.pyc
 datasets/rico/*
 .mypy_cache/*
+.vscode/settings_orig.json
 data/.mypy_cache/*
 datasets/.mypy_cache/*
 util/.mypy_cache/*
