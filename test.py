@@ -29,13 +29,19 @@ webpage = html.HTML(web_dir,
                     (opt.name, opt.phase, opt.which_epoch))
 
 # test
+once = True
 for i, data_i in enumerate(dataloader):
     if i * opt.batchSize >= opt.how_many:
         break
 
     generated = model(data_i, mode='inference')
+    if once: 
+        print(type(data_i))
+        print(type(data_i['label']))
+        once = False  
 
     img_path = data_i['path']
+    print(generated.shape[0] )
     for b in range(generated.shape[0]):
         print('process image... %s' % img_path[b])
         visuals = OrderedDict([('input_label', data_i['label'][b]),

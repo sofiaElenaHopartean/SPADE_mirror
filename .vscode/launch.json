@@ -5,6 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: test rico",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal", 
+            "args": [
+                "--name",
+                "train_rico3_17.5",
+                "--dataset_mode", 
+                "coco",
+                "--dataroot",
+                "./datasets/rico/",
+                "--how_many",
+                "5",
+                "--which_epoch",
+                "30"
+            ]
+        },
+        {
             "name": "Python: rico generate instance maps",
             "type": "python",
             "request": "launch",
@@ -18,9 +37,12 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "args": [
-                "--name", "train_rico2_17.5",
-                "--dataset_mode", "coco",
-                "--dataroot", "./datasets/rico/",
+                "--name",
+                "train_rico2_17.5",
+                "--dataset_mode",
+                "coco",
+                "--dataroot",
+                "./datasets/rico/",
                 "--tf_log",
                 "--no_flip"
             ]
